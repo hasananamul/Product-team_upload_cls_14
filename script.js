@@ -114,34 +114,68 @@ team_form.addEventListener("submit", function (prevent) {
   prevent.preventDefault();
 
   let dev_name = this.querySelector('input[name="name"]').value;
-  let dev_gmail = this.querySelector('input[name="img"]').value;
-  let dev_gender = this.querySelector('input[name="gender"]').value;
+  let dev_img = this.querySelector('input[name="img"]').value;
+  let dev_gender = this.querySelector('input[name="gender"]:checked').value;
   let dev_skill = this.querySelectorAll('input[type="checkbox"]:checked');
 
-  console.log(dev_name);
+  let skill_arr = [];
+  for (let i = 0; i < dev_skill.length; i++) {
+    skill_arr.push(dev_skill[i].value);
+  }
+
+  let data_arr;
+  if (get_data("devs")) {
+    data_arr = get_data("devs");
+  } else {
+    data_arr = [];
+  }
+
+  data_arr.push({
+    Name: dev_name,
+    Image: dev_img,
+    Gender: dev_gender,
+    Skill: skill_arr,
+  });
+
+  set_data("devs", data_arr);
+  all_devs_data();
 });
 
-// set_data("team", team_member);
+all_devs_data();
+function all_devs_data() {
+  let data = "";
 
-let get_team = get_data("team");
+  let all_data = get_data("devs");
 
-console.log(get_team);
-get_team.map((data) => {
-  team_section.innerHTML += `<div class="col-md-4">
-              <div class="my-5 card shadow">
+  all_data.map((dev_data) => {
+    let list = "";
+    dev_data.Skill.map((li) => {
+      list += `<li class="list-group-item p-1"> <i class="text-success fa fa-hand-o-right" aria-hidden="true"></i> ${li}</li>`;
+    });
+
+    data += `
+    <div class="col-md-4">
+              <div class="my-3 card shadow">
+
                 <div class="card-img">
                   <img
                     class="card-img-top"
-                    src="${data.Image}"
+                    src="${dev_data.Image}"
                   />
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">${data.Name}</h4>
-                  <h6 class="card-subtitle text-muted">${data.dev_gender}</h6>
+                  <h4 class="card-title"> ${dev_data.Name}</h4>
+                  <h6 class="card-subtitle text-muted"> Gender : ${dev_data.Gender}</h6>
                   <ul class="list-group">
-                  <li class="list-item">${data.skill}</li>
+                  <strong> Your Skill's </strong>
+                  ${list}
                   </ul>
                 </div>
               </div>
-            </div>`;
-});
+            </div>
+    
+    `;
+  });
+
+  team_section.innerHTML = data;
+}
