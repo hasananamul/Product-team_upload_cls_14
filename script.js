@@ -70,7 +70,7 @@ function product() {
                    "
                   />
                   <div class="card-body">
-                    <h4 class="card-title">${data.Name}</h4>
+                    <h4 class="card-title text-capitalize">${data.Name}</h4>
                     <div class="product-price">
                       <span class="rg_price"> ${data.reguller_prize} ৳ </span>
                       <span class="sl_price h5">${data.Sell_prize} ৳ </span>
