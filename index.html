@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product upload from local storage</title>
+    <!-- Font awesome CDN link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Product upload section start-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 my-5">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="text-center text-success">
+                Input Field to Add Products
+              </h2>
+              <form id="product_upload">
+                <div class="form-group mb-3">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Product Name"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="sl_prize"
+                    id="sl_prize"
+                    placeholder="Sell Prize"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="rg_prize"
+                    id="rg_prize"
+                    placeholder="Regular Prize"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="image"
+                    id="image"
+                    placeholder=" Product Image link(url)"
+                  />
+                </div>
+                <input
+                  type="submit"
+                  value="Add product"
+                  class="btn btn-success w-100"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--col md -4-->
+        <div class="col-md-8 my-5">
+          <input
+            class="form-control"
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search Products"
+          />
+          <div class="product_section row"></div>
+        </div>
+        <!--col md -8-->
+      </div>
+    </div>
+
+    <!-- Team member section upload start -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="text-center text-success">
+                Input field to upload team member
+              </h3>
+              <form id="team_form">
+                <div class="form-group mb-2">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div class="form-group mb-2">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="img"
+                    id="img"
+                    placeholder="Image link(url)"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="gender">
+                    <h6 class="text-success">Select Gender</h6> </label
+                  ><br />
+
+                  <input type="radio" name="gender" id="male" value="Male" />
+                  <label for="male"> Male</label>
+
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="Female"
+                  />
+                  <label for="female"> Female</label> <br />
+                </div>
+                <div class="form-group">
+                  <div class="mb-3">
+                    <label for="skill">
+                      <h6 class="text-success">Check your skill</h6> </label
+                    ><br />
+                    <input type="checkbox" name="html" id="html" value="HTML" />
+                    <label for="html"> HTLM </label><br />
+                    <input type="checkbox" name="css" id="css" value="CSS" />
+                    <label for="css"> CSS </label><br />
+                    <input type="checkbox" name="php" id="php" value="PHP" />
+                    <label for="php"> PHP </label><br />
+                    <input
+                      type="checkbox"
+                      name="phython"
+                      id="phython"
+                      value="Phython"
+                    />
+                    <label for="phython"> Phython </label><br />
+                    <input
+                      type="checkbox"
+                      name="js"
+                      id="js"
+                      value="JavaScript"
+                    />
+                    <label for="js"> JavaScript </label><br />
+                  </div>
+                </div>
+
+                <input
+                  id="sub_btn"
+                  class="btn btn-success w-100"
+                  type="submit"
+                  value="Add Member"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!--col md -5-->
+        <div class="col-md-8">
+          <div class="row team_section"></div>
+        </div>
+        <!--col md -8-->
+      </div>
+      <!--row-->
+    </div>
+    <!--container-->
+
+    <script src="function.js"></script>
+    <!-- <script src="data.js"></script> -->
+    <script src="script.js"></script>
+  </body>
+</html>
